@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartFridge</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/smart-fridge-fe/src/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/smart-fridge-fe/src/assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="/smart-fridge-fe/src/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="/smart-fridge-fe/src/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/smart-fridge-fe/src/assets/css/app.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/x-icon">
+  </head>
+
+<body>
+<div id="app">
+  <div id="main">
+    <header class="mb-3">
+      <a href="#" class="burger-btn d-block d-xl-none">
+        <i class="bi bi-justify fs-3"></i>
+      </a>
+    </header>
+
+
+<hr class="margin150">
+    <div class="col-2 container">
+      <h3>Add new fridge</h3>
+    </div>
+
+    <div>
+      <div class="submit-form container">
+
+        <!--    PRODUCER NAME    -->
+        <div class="form-group col-4 container">
+          <label for="producerName">Producer Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="producerName"
+            required
+            [(ngModel)]="fridge.producerName"
+            name="title"
+          />
+        </div>
+
+        <!--    FRIDGE NAME    -->
+        <div class="form-group col-4 container">
+          <label for="fridgeName">Fridge Name</label>
+          <input
+            class="form-control"
+            id="fridgeName"
+            required
+            [(ngModel)]="fridge.fridgeName"
+            name="description"
+          />
+        </div>
+
+        <!--    DOOR TYPE    -->
+        <div class="form-group col-4 container">
+          <label for="fridgeName">Door Type</label><br>
+          <select class="form-select"
+                  id="doorType" required
+                  [(ngModel)]="fridge.doorType"
+                  name="description"
+          >
+            <option *ngFor="let item of enumKeys" [value]="item">{{ item }}</option>
+          </select>
+        </div>
+
+        <!--    CHILLER CAPACITY    -->
+        <div class="form-group col-4 container">
+          <label for="fridgeName">Chiller Capacity (litres)</label>
+          <input
+            class="form-control"
+            id="chillerCapacity"
+            type="number"
+            step="1"
+            min="50"
+            max="500"
+            required
+            [(ngModel)]="fridge.chillerCapacity"
+            name="description"
+          />
+        </div>
+
+        <!--    FREEZER CAPACITY    -->
+        <div class="form-group col-4 container">
+          <label for="fridgeName">Freezer Capacity (litres)</label>
+          <input
+            class="form-control"
+            id="freezerCapacity"
+            type="number"
+            step="1"
+            min="10"
+            max="200"
+            required
+            [(ngModel)]="fridge.freezerCapacity"
+            name="description"
+          />
+        </div>
+
+
+
+        <div class="form-group col-4 container">
+          <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+        </div>
+
+        <div *ngIf="submitted" class="form-group col-4 container">
+          <h4>Fridge created successfully!</h4><br>
+          <button class="btn btn-primary" (click)="newFridge()">Add another fridge</button>
+        </div>
+<hr>
+      </div>
+    </div>
+
+    <footer></footer>
+  </div>
+</div>
+
+  <script src="../../../assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../assets/vendors/apexcharts/apexcharts.js"></script>
+  <script src="../../../assets/js/pages/dashboard.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+
+</body>
+</html>
