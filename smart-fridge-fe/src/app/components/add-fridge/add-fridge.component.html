@@ -25,97 +25,115 @@
       </a>
     </header>
 
-
-<hr class="margin150">
+<hr class="margin150top">
     <div class="col-2 container">
       <h3>Add new fridge</h3>
     </div>
 
-    <div>
-      <div class="submit-form container">
-
-        <!--    PRODUCER NAME    -->
-        <div class="form-group col-4 container">
-          <label for="producerName">Producer Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="producerName"
-            required
-            [(ngModel)]="fridge.producerName"
-            name="title"
-          />
+    <div class="col-6 container">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Provide details of new fridge</h4>
         </div>
+        <div class="card-content">
+          <div class="card-body">
+            <form class="form form-horizontal">
+              <div class="form-body">
+                <div class="row">
 
-        <!--    FRIDGE NAME    -->
-        <div class="form-group col-4 container">
-          <label for="fridgeName">Fridge Name</label>
-          <input
-            class="form-control"
-            id="fridgeName"
-            required
-            [(ngModel)]="fridge.fridgeName"
-            name="description"
-          />
+                  <div class="col-md-4">
+                    <label>Producer name</label>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="producerName"
+                      required
+                      [(ngModel)]="fridge.producerName"
+                      name="producerName"
+                    />
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Fridge name</label>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <input
+                      class="form-control"
+                      id="fridgeName"
+                      required
+                      [(ngModel)]="fridge.fridgeName"
+                      name="fridgeName"
+                    />
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Door type</label>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <select class="form-select"
+                                        id="doorType" required
+                                        [(ngModel)]="fridge.doorType"
+                                        name="doorType"
+                                >
+                      <option *ngFor="let item of enumKeys" [value]="item">{{ item }}</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Chiller capacity</label>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <input
+                      class="form-control"
+                      id="chillerCapacity"
+                      type="number"
+                      step="1"
+                      min="50"
+                      max="500"
+                      required
+                      [(ngModel)]="fridge.chillerCapacity"
+                      name="chillerCapacity"
+                    />
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Freezer capacity</label>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <input
+                      class="form-control"
+                      id="freezerCapacity"
+                      type="number"
+                      step="1"
+                      min="10"
+                      max="200"
+                      required
+                      [(ngModel)]="fridge.freezerCapacity"
+                      name="freezerCapacity"
+                    />
+                  </div>
+
+                  <div class="col-sm-12 d-flex justify-content-end">
+                    <button (click)="saveTutorial()" class="btn btn-success" style="margin-right: 10px">Submit</button>
+                    <button type="reset" class="btn btn-secondary" (click)="newFridge()">Reset</button>
+                  </div>
+
+                  <div *ngIf="submitted" class="form-group col-6 container">
+                    <h4>Fridge created successfully!</h4><br>
+                    <button class="btn btn-primary" (click)="newFridge()">Add another fridge</button>
+                  </div>
+
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <!--    DOOR TYPE    -->
-        <div class="form-group col-4 container">
-          <label for="fridgeName">Door Type</label><br>
-          <select class="form-select"
-                  id="doorType" required
-                  [(ngModel)]="fridge.doorType"
-                  name="description"
-          >
-            <option *ngFor="let item of enumKeys" [value]="item">{{ item }}</option>
-          </select>
-        </div>
-
-        <!--    CHILLER CAPACITY    -->
-        <div class="form-group col-4 container">
-          <label for="fridgeName">Chiller Capacity (litres)</label>
-          <input
-            class="form-control"
-            id="chillerCapacity"
-            type="number"
-            step="1"
-            min="50"
-            max="500"
-            required
-            [(ngModel)]="fridge.chillerCapacity"
-            name="description"
-          />
-        </div>
-
-        <!--    FREEZER CAPACITY    -->
-        <div class="form-group col-4 container">
-          <label for="fridgeName">Freezer Capacity (litres)</label>
-          <input
-            class="form-control"
-            id="freezerCapacity"
-            type="number"
-            step="1"
-            min="10"
-            max="200"
-            required
-            [(ngModel)]="fridge.freezerCapacity"
-            name="description"
-          />
-        </div>
-
-
-
-        <div class="form-group col-4 container">
-          <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
-        </div>
-
-        <div *ngIf="submitted" class="form-group col-4 container">
-          <h4>Fridge created successfully!</h4><br>
-          <button class="btn btn-primary" (click)="newFridge()">Add another fridge</button>
-        </div>
-<hr>
       </div>
     </div>
+
+    <hr>
 
     <footer></footer>
   </div>

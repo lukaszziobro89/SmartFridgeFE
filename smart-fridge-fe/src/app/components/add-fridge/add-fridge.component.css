@@ -4,6 +4,10 @@
   align-items: center;
 }
 
-.margin150{
+.margin150top{
   margin-top: 150px;
+}
+
+.margin150left{
+  margin-left: 150px;
 }
