@@ -47,6 +47,7 @@
                           <th>Producer Name</th>
                           <th>Freezer Capacity</th>
                           <th>Chiller Capacity</th>
+                          <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -90,6 +91,13 @@
                                 <img src="/assets/images/faces/9.jpg">
                               </div>
                               <p class="font-bold ms-3 mb-0">{{f.chillerCapacity}}</p>
+                            </div>
+                          </td>
+                          <td class="col-2">
+                            <div class="d-flex align-items-center">
+                              <p class="font-bold ms-3 mb-0">
+                                <button class="btn btn-danger"  (click)="deleteFridge(f)" > Delete fridge</button>
+                              </p>
                             </div>
                           </td>
                         </tr>
