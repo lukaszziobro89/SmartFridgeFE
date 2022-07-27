@@ -28,6 +28,19 @@ export class FridgesListComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
+
+  deleteFridge(fridge: Fridge): void {
+    this.fridgeService.deleteFridge(fridge.fridgeId).subscribe({
+        next: (data) => {
+          this.fridges = data;
+          this.retrieveFridges();
+        },
+        error: (e) => console.error(e)
+      }
+    )
+  }
+
+
 }
 
 
