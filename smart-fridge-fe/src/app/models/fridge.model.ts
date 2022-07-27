@@ -1,4 +1,5 @@
 export class Fridge{
+  fridgeId?: number;
   fridgeName?: string;
   doorType?: string;
   producerName?: string;

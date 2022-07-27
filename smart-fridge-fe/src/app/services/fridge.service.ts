@@ -20,4 +20,8 @@ export class FridgeService {
     return this.http.post(baseUrl + "/add", data);
   }
 
+  deleteFridge(id: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/delete/${id}`)
+  }
+
 }
